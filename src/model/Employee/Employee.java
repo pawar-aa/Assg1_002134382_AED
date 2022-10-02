@@ -6,7 +6,9 @@ package model.Employee;
 
 /**
  *
- * @author Aashay
+ * @author: Aashay Pawar
+ * @NUID: 002134382
+ * @NUEMAIL: pawar.aa@northeastern.edu
  */
 public class Employee {
     private String employeeId;

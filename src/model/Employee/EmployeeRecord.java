@@ -8,7 +8,9 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Aashay
+ * @author: Aashay Pawar
+ * @NUID: 002134382
+ * @NUEMAIL: pawar.aa@northeastern.edu
  */
 public class EmployeeRecord {
     private ArrayList<Employee> record;

@@ -8,7 +8,9 @@ import model.Employee.EmployeeRecord;
 
 /**
  *
- * @author Aashay
+ * @author: Aashay Pawar
+ * @NUID: 002134382
+ * @NUEMAIL: pawar.aa@northeastern.edu
  */
 public class MainJFrame extends javax.swing.JFrame {
 

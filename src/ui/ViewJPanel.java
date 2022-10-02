@@ -13,7 +13,9 @@ import model.Employee.EmployeeRecord;
 
 /**
  *
- * @author Aashay
+ * @author: Aashay Pawar
+ * @NUID: 002134382
+ * @NUEMAIL: pawar.aa@northeastern.edu
  */
 public class ViewJPanel extends javax.swing.JPanel {
 
@@ -36,6 +38,29 @@ public class ViewJPanel extends javax.swing.JPanel {
         chAttribute.add("");
         for(int i=0;i<10;i++){
             chAttribute.add(attributes[i]);  
+        }
+        
+        chUpdateGender.add("");
+        chUpdateGender.add("Male");
+        chUpdateGender.add("Female");
+        chUpdateGender.add("NA");
+        
+        chUpdateDate.add("");
+        for (int i = 1; i < 10; i++) {
+            chUpdateDate.add("0" + String.valueOf(i));
+        }
+        for (int i = 10; i < 32; i++) {
+            chUpdateDate.add(String.valueOf(i));
+        }
+        
+        String[] months = {"","JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
+        for (int i = 0; i < 13; i++) {
+            chUpdateMonth.add(months[i]);
+        }
+        
+        chUpdateYear.add("");
+        for (int i = 2022; i > 1980; i--) {
+            chUpdateYear.add(String.valueOf(i));
         }
         
         btnUpdateSave.setEnabled(false);
@@ -268,17 +293,17 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addComponent(txtUpdateName, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(chUpdateGender, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(chUpdateDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(chUpdateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(chUpdateYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(chUpdateDate, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2)
+                                .addComponent(chUpdateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1)
+                                .addComponent(chUpdateYear, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtUpdateTeam, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtUpdateLevel, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtUpdatePosition, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtUpdateEmail, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnUpdatePhoto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnViewAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -362,7 +387,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addComponent(btnUpdatePhoto))
                         .addGap(18, 18, 18)
                         .addComponent(btnUpdateSave)
-                        .addContainerGap(26, Short.MAX_VALUE))))
+                        .addContainerGap(35, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -381,36 +406,23 @@ public class ViewJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-
+        
         int selectedRowIndex = tblRecords.getSelectedRow();
         if(selectedRowIndex<0){
             JOptionPane.showMessageDialog(this, "Select a row to update");
             return;
         }
+
+        btnSearch.setEnabled(false);
+        chAttribute.setEnabled(false);
+        txtQuery.setEnabled(false);
         
-        chUpdateGender.add("");
-        chUpdateGender.add("Male");
-        chUpdateGender.add("Female");
-        chUpdateGender.add("NA");
+        btnDelete.setEnabled(false);
+        btnViewAll.setEnabled(false);
         
-        chUpdateDate.add("");
-        for (int i = 1; i < 10; i++) {
-            chUpdateDate.add("0" + String.valueOf(i));
-        }
-        for (int i = 10; i < 32; i++) {
-            chUpdateDate.add(String.valueOf(i));
-        }
         
-        String[] months = {"","JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
-        for (int i = 0; i < 13; i++) {
-            chUpdateMonth.add(months[i]);
-        }
-        
-        chUpdateYear.add("");
-        for (int i = 2022; i > 1980; i--) {
-            chUpdateYear.add(String.valueOf(i));
-        }
-        
+
+        btnUpdate.setEnabled(false);
         btnUpdateSave.setEnabled(true);
         
         String employeeId = record.getRecord().get(selectedRowIndex).getEmployeeId();
@@ -669,6 +681,11 @@ public class ViewJPanel extends javax.swing.JPanel {
         String email = txtUpdateEmail.getText();
         String phone = txtUpdatePhone.getText();
         String photoFilePath = xFilePath;
+        
+        if(name.length()*age.length()*gender.length()*startDate.length()*level.length()*team.length()*position.length()*email.length()*phone.length() == 0 ){
+            JOptionPane.showMessageDialog(this,"One or more fields missing!");
+            return;
+        }
 
         Employee e = record.addNewRecord();
 
@@ -704,6 +721,14 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         PopulateTable();
         btnUpdateSave.setEnabled(false);
+        
+        btnSearch.setEnabled(true);
+        chAttribute.setEnabled(true);
+        txtQuery.setEnabled(true);
+        
+        btnDelete.setEnabled(true);
+        btnViewAll.setEnabled(true);
+        btnUpdate.setEnabled(true);
 
     }//GEN-LAST:event_btnUpdateSaveActionPerformed
 

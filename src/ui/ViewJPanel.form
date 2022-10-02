@@ -72,11 +72,11 @@
                           <Component id="txtUpdateName" alignment="0" max="32767" attributes="0"/>
                           <Component id="chUpdateGender" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="chUpdateDate" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="chUpdateMonth" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="chUpdateYear" min="-2" max="-2" attributes="0"/>
+                              <Component id="chUpdateDate" min="-2" pref="52" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                              <Component id="chUpdateMonth" min="-2" pref="64" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                              <Component id="chUpdateYear" min="-2" pref="79" max="-2" attributes="0"/>
                           </Group>
                           <Component id="txtUpdateTeam" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtUpdateLevel" alignment="0" max="32767" attributes="0"/>
@@ -86,7 +86,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="172" max="32767" attributes="0"/>
+              <EmptySpace pref="162" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btnViewAll" max="32767" attributes="0"/>
                   <Component id="btnDelete" max="32767" attributes="0"/>
@@ -192,7 +192,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnUpdateSave" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                      <EmptySpace pref="35" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
