@@ -34,12 +34,6 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         PopulateTable();
         
-        String[] attributes = {"Id", "Name", "Age", "Gender", "Start Date", "Level", "Team", "Position", "Email", "Phone" };
-        chAttribute.add("");
-        for(int i=0;i<10;i++){
-            chAttribute.add(attributes[i]);  
-        }
-        
         chUpdateGender.add("");
         chUpdateGender.add("Male");
         chUpdateGender.add("Female");
@@ -80,25 +74,21 @@ public class ViewJPanel extends javax.swing.JPanel {
         tblRecords = new javax.swing.JTable();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        chAttribute = new java.awt.Choice();
-        txtQuery = new javax.swing.JTextField();
-        btnSearch = new javax.swing.JButton();
-        btnViewAll = new javax.swing.JButton();
         txtUpdateName = new javax.swing.JTextField();
         txtUpdatePhone = new javax.swing.JTextField();
         btnUpdateSave = new javax.swing.JButton();
         btnUpdatePhoto = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        lblAge = new javax.swing.JLabel();
+        lblGender = new javax.swing.JLabel();
+        lblStartDate = new javax.swing.JLabel();
+        lblLevel = new javax.swing.JLabel();
+        lblTeam = new javax.swing.JLabel();
+        lblPosition = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
+        lblPhone = new javax.swing.JLabel();
+        lblPhoto = new javax.swing.JLabel();
         txtUpdateId = new javax.swing.JTextField();
         chUpdateGender = new java.awt.Choice();
         chUpdateDate = new java.awt.Choice();
@@ -145,30 +135,10 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnDelete.setText("Delete");
+        btnDelete.setText("Delete Record");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
-            }
-        });
-
-        txtQuery.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtQueryActionPerformed(evt);
-            }
-        });
-
-        btnSearch.setText("Search");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
-
-        btnViewAll.setText("View All");
-        btnViewAll.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewAllActionPerformed(evt);
             }
         });
 
@@ -192,27 +162,27 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setText("Employee ID:");
+        lblId.setText("Employee ID:");
 
-        jLabel2.setText("Full Name:");
+        lblName.setText("Full Name:");
 
-        jLabel3.setText("Age:");
+        lblAge.setText("Age:");
 
-        jLabel4.setText("Gender:");
+        lblGender.setText("Gender:");
 
-        jLabel5.setText("Start Date:");
+        lblStartDate.setText("Start Date:");
 
-        jLabel6.setText("Level:");
+        lblLevel.setText("Level:");
 
-        jLabel7.setText("Team Info:");
+        lblTeam.setText("Team Info:");
 
-        jLabel8.setText("Position Title:");
+        lblPosition.setText("Position Title:");
 
-        jLabel9.setText("Email:");
+        lblEmail.setText("Email:");
 
-        jLabel10.setText("Phone:");
+        lblPhone.setText("Phone:");
 
-        jLabel11.setText("Photo:");
+        lblPhoto.setText("Photo:");
 
         txtUpdateTeam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,42 +220,32 @@ public class ViewJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
+                .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblId)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtQuery, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                            .addComponent(chAttribute, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(btnSearch)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(204, 204, 204)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
+                        .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel9)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel11)
-                                        .addComponent(jLabel10))
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(12, 12, 12)))
+                            .addComponent(lblName, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblPosition, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblGender, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblStartDate, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblLevel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblTeam, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblEmail, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblPhoto)
+                                .addComponent(lblPhone))
+                            .addComponent(lblAge, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnUpdateSave)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtUpdateId)
                             .addComponent(txtUpdateAge, javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,16 +262,13 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addComponent(txtUpdateLevel, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtUpdatePosition, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtUpdateEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnUpdatePhoto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnViewAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(50, 50, 50))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(386, 386, 386)
-                .addComponent(btnUpdateSave)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnUpdatePhoto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(50, 463, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDelete)
+                        .addGap(143, 143, 143))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,74 +277,59 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnUpdate)
+                        .addComponent(btnDelete))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnDelete)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnViewAll)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnUpdate)
-                                        .addGap(18, 18, 18))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(chAttribute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(txtUpdateId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtQuery))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtUpdateName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtUpdateAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(79, 79, 79)
-                                .addComponent(btnSearch)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(chUpdateGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblId)
+                            .addComponent(txtUpdateId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtUpdateName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblName))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtUpdateAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAge))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
+                            .addComponent(chUpdateGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblGender))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblStartDate)
                             .addComponent(chUpdateDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(chUpdateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(chUpdateYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
+                            .addComponent(lblLevel)
                             .addComponent(txtUpdateLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtUpdateTeam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
+                            .addComponent(lblTeam))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtUpdatePosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
+                            .addComponent(lblPosition))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtUpdateEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
+                            .addComponent(lblEmail))
                         .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtUpdatePhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))
+                            .addComponent(lblPhone))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(btnUpdatePhoto))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnUpdateSave)
-                        .addContainerGap(35, Short.MAX_VALUE))))
+                            .addComponent(lblPhoto)
+                            .addComponent(btnUpdatePhoto))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnUpdateSave)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -413,15 +355,7 @@ public class ViewJPanel extends javax.swing.JPanel {
             return;
         }
 
-        btnSearch.setEnabled(false);
-        chAttribute.setEnabled(false);
-        txtQuery.setEnabled(false);
-        
         btnDelete.setEnabled(false);
-        btnViewAll.setEnabled(false);
-        
-        
-
         btnUpdate.setEnabled(false);
         btnUpdateSave.setEnabled(true);
         
@@ -435,6 +369,9 @@ public class ViewJPanel extends javax.swing.JPanel {
         String position = record.getRecord().get(selectedRowIndex).getPosition();
         String email = record.getRecord().get(selectedRowIndex).getEmail();
         String phone = record.getRecord().get(selectedRowIndex).getPhone();
+        String photo = record.getRecord().get(selectedRowIndex).getPhotoFilePath();
+        xFilePath = photo;
+        
         
         txtUpdateId.setText(employeeId);
         txtUpdateName.setText(employeeName);
@@ -451,217 +388,6 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_btnUpdateActionPerformed
-
-    private void txtQueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQueryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtQueryActionPerformed
-
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // TODO add your handling code here:
-
-        int attribute = chAttribute.getSelectedIndex();
-        String query = txtQuery.getText();
-        int numberOfRecords = record.getRecord().size();
-        
-        EmployeeRecord er = new EmployeeRecord();
-        
-        switch(attribute){
-            case 1: for(int i=0;i<numberOfRecords;i++){
-                if(query.matches(record.getRecord().get(i).getEmployeeId())){
-                    Employee ek = er.addNewRecord();
-                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
-                    ek.setName(record.getRecord().get(i).getName());
-                    ek.setAge(record.getRecord().get(i).getAge());
-                    ek.setGender(record.getRecord().get(i).getGender());
-                    ek.setStartDate(record.getRecord().get(i).getStartDate());
-                    ek.setLevel(record.getRecord().get(i).getLevel());
-                    ek.setTeam(record.getRecord().get(i).getTeam());
-                    ek.setPosition(record.getRecord().get(i).getPosition());
-                    ek.setEmail(record.getRecord().get(i).getEmail());
-                    ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
-                }
-            }
-            
-            case 2: for(int i=0;i<numberOfRecords;i++){
-                if(query.matches(record.getRecord().get(i).getName())){
-                    Employee ek = er.addNewRecord();
-                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
-                    ek.setName(record.getRecord().get(i).getName());
-                    ek.setAge(record.getRecord().get(i).getAge());
-                    ek.setGender(record.getRecord().get(i).getGender());
-                    ek.setStartDate(record.getRecord().get(i).getStartDate());
-                    ek.setLevel(record.getRecord().get(i).getLevel());
-                    ek.setTeam(record.getRecord().get(i).getTeam());
-                    ek.setPosition(record.getRecord().get(i).getPosition());
-                    ek.setEmail(record.getRecord().get(i).getEmail());
-                    ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
-                }
-            }
-            
-            case 3: for(int i=0;i<numberOfRecords;i++){
-                if(query.matches(record.getRecord().get(i).getAge())){
-                    Employee ek = er.addNewRecord();
-                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
-                    ek.setName(record.getRecord().get(i).getName());
-                    ek.setAge(record.getRecord().get(i).getAge());
-                    ek.setGender(record.getRecord().get(i).getGender());
-                    ek.setStartDate(record.getRecord().get(i).getStartDate());
-                    ek.setLevel(record.getRecord().get(i).getLevel());
-                    ek.setTeam(record.getRecord().get(i).getTeam());
-                    ek.setPosition(record.getRecord().get(i).getPosition());
-                    ek.setEmail(record.getRecord().get(i).getEmail());
-                    ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
-                }
-            }
-            
-            case 4: for(int i=0;i<numberOfRecords;i++){
-                if(query.matches(record.getRecord().get(i).getGender())){
-                    Employee ek = er.addNewRecord();
-                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
-                    ek.setName(record.getRecord().get(i).getName());
-                    ek.setAge(record.getRecord().get(i).getAge());
-                    ek.setGender(record.getRecord().get(i).getGender());
-                    ek.setStartDate(record.getRecord().get(i).getStartDate());
-                    ek.setLevel(record.getRecord().get(i).getLevel());
-                    ek.setTeam(record.getRecord().get(i).getTeam());
-                    ek.setPosition(record.getRecord().get(i).getPosition());
-                    ek.setEmail(record.getRecord().get(i).getEmail());
-                    ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
-                }
-            }
-            
-            case 5: for(int i=0;i<numberOfRecords;i++){
-                if(query.matches(record.getRecord().get(i).getStartDate())){
-                    Employee ek = er.addNewRecord();
-                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
-                    ek.setName(record.getRecord().get(i).getName());
-                    ek.setAge(record.getRecord().get(i).getAge());
-                    ek.setGender(record.getRecord().get(i).getGender());
-                    ek.setStartDate(record.getRecord().get(i).getStartDate());
-                    ek.setLevel(record.getRecord().get(i).getLevel());
-                    ek.setTeam(record.getRecord().get(i).getTeam());
-                    ek.setPosition(record.getRecord().get(i).getPosition());
-                    ek.setEmail(record.getRecord().get(i).getEmail());
-                    ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
-                }
-            }
-            
-            case 6: for(int i=0;i<numberOfRecords;i++){
-                if(query.matches(record.getRecord().get(i).getLevel())){
-                    Employee ek = er.addNewRecord();
-                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
-                    ek.setName(record.getRecord().get(i).getName());
-                    ek.setAge(record.getRecord().get(i).getAge());
-                    ek.setGender(record.getRecord().get(i).getGender());
-                    ek.setStartDate(record.getRecord().get(i).getStartDate());
-                    ek.setLevel(record.getRecord().get(i).getLevel());
-                    ek.setTeam(record.getRecord().get(i).getTeam());
-                    ek.setPosition(record.getRecord().get(i).getPosition());
-                    ek.setEmail(record.getRecord().get(i).getEmail());
-                    ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
-                }
-            }
-            
-            case 7: for(int i=0;i<numberOfRecords;i++){
-                if(query.matches(record.getRecord().get(i).getTeam())){
-                    Employee ek = er.addNewRecord();
-                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
-                    ek.setName(record.getRecord().get(i).getName());
-                    ek.setAge(record.getRecord().get(i).getAge());
-                    ek.setGender(record.getRecord().get(i).getGender());
-                    ek.setStartDate(record.getRecord().get(i).getStartDate());
-                    ek.setLevel(record.getRecord().get(i).getLevel());
-                    ek.setTeam(record.getRecord().get(i).getTeam());
-                    ek.setPosition(record.getRecord().get(i).getPosition());
-                    ek.setEmail(record.getRecord().get(i).getEmail());
-                    ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
-                }
-            }
-            
-            case 8: for(int i=0;i<numberOfRecords;i++){
-                if(query.matches(record.getRecord().get(i).getPosition())){
-                    Employee ek = er.addNewRecord();
-                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
-                    ek.setName(record.getRecord().get(i).getName());
-                    ek.setAge(record.getRecord().get(i).getAge());
-                    ek.setGender(record.getRecord().get(i).getGender());
-                    ek.setStartDate(record.getRecord().get(i).getStartDate());
-                    ek.setLevel(record.getRecord().get(i).getLevel());
-                    ek.setTeam(record.getRecord().get(i).getTeam());
-                    ek.setPosition(record.getRecord().get(i).getPosition());
-                    ek.setEmail(record.getRecord().get(i).getEmail());
-                    ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
-                }
-            }
-            
-            case 9: for(int i=0;i<numberOfRecords;i++){
-                if(query.matches(record.getRecord().get(i).getEmail())){
-                    Employee ek = er.addNewRecord();
-                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
-                    ek.setName(record.getRecord().get(i).getName());
-                    ek.setAge(record.getRecord().get(i).getAge());
-                    ek.setGender(record.getRecord().get(i).getGender());
-                    ek.setStartDate(record.getRecord().get(i).getStartDate());
-                    ek.setLevel(record.getRecord().get(i).getLevel());
-                    ek.setTeam(record.getRecord().get(i).getTeam());
-                    ek.setPosition(record.getRecord().get(i).getPosition());
-                    ek.setEmail(record.getRecord().get(i).getEmail());
-                    ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
-                }
-            }
-            
-            case 10: for(int i=0;i<numberOfRecords;i++){
-                if(query.matches(record.getRecord().get(i).getPhone())){
-                    Employee ek = er.addNewRecord();
-                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
-                    ek.setName(record.getRecord().get(i).getName());
-                    ek.setAge(record.getRecord().get(i).getAge());
-                    ek.setGender(record.getRecord().get(i).getGender());
-                    ek.setStartDate(record.getRecord().get(i).getStartDate());
-                    ek.setLevel(record.getRecord().get(i).getLevel());
-                    ek.setTeam(record.getRecord().get(i).getTeam());
-                    ek.setPosition(record.getRecord().get(i).getPosition());
-                    ek.setEmail(record.getRecord().get(i).getEmail());
-                    ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
-                }
-            }
-        }
-
-        DefaultTableModel model = (DefaultTableModel) tblRecords.getModel();
-        model.setRowCount(0);
-        
-        for(Employee e: er.getRecord()){
-            Object[] row = new Object[10];
-            row[0] = e.getEmployeeId();
-            row[1] = e.getName();
-            row[2] = e.getAge();
-            row[3] = e.getGender();
-            row[4] = e.getStartDate();
-            row[5] = e.getLevel();
-            row[6] = e.getTeam();
-            row[7] = e.getPosition();
-            row[8] = e.getEmail();
-            row[9] = e.getPhone();
-            
-            model.addRow(row);
-        }
-        
-    }//GEN-LAST:event_btnSearchActionPerformed
-
-    private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
-        // TODO add your handling code here:
-        PopulateTable();
-    }//GEN-LAST:event_btnViewAllActionPerformed
 
     private void txtUpdatePhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdatePhoneActionPerformed
         // TODO add your handling code here:
@@ -686,8 +412,10 @@ public class ViewJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this,"One or more fields missing!");
             return;
         }
+        
+        int selectedRowIndex = tblRecords.getSelectedRow();
 
-        Employee e = record.addNewRecord();
+        Employee e = new Employee();
 
         e.setEmployeeId(id);
         e.setName(name);
@@ -700,6 +428,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         e.setEmail(email);
         e.setPhone(phone);
         e.setPhotoFilePath(photoFilePath);
+        
+        record.updateRecord(selectedRowIndex, e);
 
         JOptionPane.showMessageDialog(this,"Fields Updates!");
 
@@ -716,18 +446,11 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtUpdateEmail.setText("");
         txtUpdatePhone.setText("");
         
-        int selectedRowIndex = tblRecords.getSelectedRow();
-        record.deleteRecord(selectedRowIndex);
+        
         
         PopulateTable();
         btnUpdateSave.setEnabled(false);
-        
-        btnSearch.setEnabled(true);
-        chAttribute.setEnabled(true);
-        txtQuery.setEnabled(true);
-        
         btnDelete.setEnabled(true);
-        btnViewAll.setEnabled(true);
         btnUpdate.setEnabled(true);
 
     }//GEN-LAST:event_btnUpdateSaveActionPerformed
@@ -766,30 +489,26 @@ public class ViewJPanel extends javax.swing.JPanel {
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnUpdatePhoto;
     private javax.swing.JButton btnUpdateSave;
-    private javax.swing.JButton btnViewAll;
-    private java.awt.Choice chAttribute;
     private java.awt.Choice chUpdateDate;
     private java.awt.Choice chUpdateGender;
     private java.awt.Choice chUpdateMonth;
     private java.awt.Choice chUpdateYear;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAge;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblGender;
+    private javax.swing.JLabel lblId;
+    private javax.swing.JLabel lblLevel;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPhone;
+    private javax.swing.JLabel lblPhoto;
+    private javax.swing.JLabel lblPosition;
+    private javax.swing.JLabel lblStartDate;
+    private javax.swing.JLabel lblTeam;
     private javax.swing.JTable tblRecords;
-    private javax.swing.JTextField txtQuery;
     private javax.swing.JTextField txtUpdateAge;
     private javax.swing.JTextField txtUpdateEmail;
     private javax.swing.JTextField txtUpdateId;

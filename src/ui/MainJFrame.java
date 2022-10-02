@@ -22,7 +22,7 @@ public class MainJFrame extends javax.swing.JFrame {
     
     public MainJFrame() {
         initComponents();
-        
+        setTitle("Assignment-1: Employee Management Software    Author: Aashay Pawar    NUID: 002134382");
         record = new EmployeeRecord();
     }
 
@@ -51,14 +51,14 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnView.setText("Search / Update / Delete");
+        btnView.setText("Update / Delete");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
             }
         });
 
-        btnShowProfile.setText("Show Profile");
+        btnShowProfile.setText("Search / Show Profile");
         btnShowProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShowProfileActionPerformed(evt);
@@ -82,11 +82,11 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(btnAdd)
-                .addGap(26, 26, 26)
-                .addComponent(btnView)
-                .addGap(26, 26, 26)
+                .addGap(75, 75, 75)
                 .addComponent(btnShowProfile)
-                .addContainerGap(648, Short.MAX_VALUE))
+                .addGap(75, 75, 75)
+                .addComponent(btnView)
+                .addContainerGap(550, Short.MAX_VALUE))
         );
 
         jSplitPane2.setLeftComponent(jPanel3);
@@ -182,4 +182,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSplitPane jSplitPane2;
     // End of variables declaration//GEN-END:variables
+
+    private void setTitle() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

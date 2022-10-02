@@ -27,11 +27,16 @@ public class ProfileJPanel extends javax.swing.JPanel {
      */
     
     EmployeeRecord record;
-    
+    EmployeeRecord er;
+    Boolean alpha;
+
+    @SuppressWarnings("empty-statement")
     public ProfileJPanel(EmployeeRecord record) {
         initComponents();
         
         this.record = record;
+        alpha = false;
+        
         
         PopulateTable();
         
@@ -65,8 +70,8 @@ public class ProfileJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRecords = new javax.swing.JTable();
         btnShowProfile = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblPhoto = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         txtAge = new javax.swing.JTextField();
@@ -77,19 +82,20 @@ public class ProfileJPanel extends javax.swing.JPanel {
         txtPosition = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtPhone = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        lblAge = new javax.swing.JLabel();
+        lblGender = new javax.swing.JLabel();
+        lblStartDate = new javax.swing.JLabel();
+        lblLevel = new javax.swing.JLabel();
+        lblTeam = new javax.swing.JLabel();
+        lblPosition = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
+        lblPhone = new javax.swing.JLabel();
         chAttribute = new java.awt.Choice();
         txtQuery = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         btnViewAll = new javax.swing.JButton();
+        lblSearch = new javax.swing.JLabel();
 
         tblRecords.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -126,9 +132,9 @@ public class ProfileJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        lblPhoto.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setText("Employee Id:");
+        lblId.setText("Employee Id:");
 
         txtAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,23 +154,23 @@ public class ProfileJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setText("Name:");
+        lblName.setText("Name:");
 
-        jLabel4.setText("Age:");
+        lblAge.setText("Age:");
 
-        jLabel5.setText("Gender:");
+        lblGender.setText("Gender:");
 
-        jLabel6.setText("Start Date:");
+        lblStartDate.setText("Start Date:");
 
-        jLabel7.setText("Level:");
+        lblLevel.setText("Level:");
 
-        jLabel8.setText("Team:");
+        lblTeam.setText("Team:");
 
-        jLabel9.setText("Position:");
+        lblPosition.setText("Position:");
 
-        jLabel10.setText("Email:");
+        lblEmail.setText("Email:");
 
-        jLabel11.setText("Phone:");
+        lblPhone.setText("Phone:");
 
         txtQuery.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,6 +192,8 @@ public class ProfileJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblSearch.setText("Search:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -196,70 +204,71 @@ public class ProfileJPanel extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1002, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(lblPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblId)
+                            .addComponent(lblName)
+                            .addComponent(lblAge)
+                            .addComponent(lblGender)
+                            .addComponent(lblStartDate))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnShowProfile)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(78, 78, 78)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(65, 65, 65)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnShowProfile)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtId)
+                                    .addComponent(txtName)
+                                    .addComponent(txtAge)
+                                    .addComponent(txtGender)
+                                    .addComponent(txtStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(25, 25, 25)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtId)
-                                            .addComponent(txtName)
-                                            .addComponent(txtAge)
-                                            .addComponent(txtGender)
-                                            .addComponent(txtStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(25, 25, 25)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(10, 10, 10)
-                                                .addComponent(jLabel11))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addGap(14, 14, 14)
-                                                .addComponent(jLabel10))
-                                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(14, 14, 14)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtLevel)
-                                            .addComponent(txtTeam)
-                                            .addComponent(txtPosition)
-                                            .addComponent(txtEmail)
-                                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(chAttribute, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(lblPhone))
+                                    .addComponent(lblEmail, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblPosition, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(14, 14, 14)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblTeam, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblLevel, javax.swing.GroupLayout.Alignment.TRAILING))))
                                 .addGap(18, 18, 18)
-                                .addComponent(txtQuery, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnSearch)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnViewAll)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtLevel)
+                                    .addComponent(txtTeam)
+                                    .addComponent(txtPosition)
+                                    .addComponent(txtEmail)
+                                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(lblSearch)
+                .addGap(27, 27, 27)
+                .addComponent(chAttribute, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtQuery, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSearch)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnViewAll)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(chAttribute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtQuery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnSearch)
-                        .addComponent(btnViewAll)))
+                        .addComponent(btnViewAll))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblSearch)
+                        .addComponent(chAttribute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(22, 22, 22)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,70 +279,81 @@ public class ProfileJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
+                                    .addComponent(lblId)
                                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
+                                    .addComponent(lblName))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4))
+                                    .addComponent(lblAge))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5))
+                                    .addComponent(lblGender))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6)))
+                                    .addComponent(lblStartDate)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7))
+                                    .addComponent(lblLevel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtTeam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8))
+                                    .addComponent(lblTeam))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtPosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9))
+                                    .addComponent(lblPosition))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10))
+                                    .addComponent(lblEmail))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel11)))))
+                                    .addComponent(lblPhone)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnShowProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowProfileActionPerformed
         // TODO add your handling code here:
+        
+
         int selectedRowIndex = tblRecords.getSelectedRow();
         if(selectedRowIndex<0){
-            JOptionPane.showMessageDialog(this, "Select a row to update");
+            JOptionPane.showMessageDialog(this, "Select a row to View");
             return;
         }
         
-        String employeeId = record.getRecord().get(selectedRowIndex).getEmployeeId();
-        String employeeName = record.getRecord().get(selectedRowIndex).getName();
-        String age = record.getRecord().get(selectedRowIndex).getAge();
-        String gender = record.getRecord().get(selectedRowIndex).getGender();
-        String startDate = record.getRecord().get(selectedRowIndex).getStartDate();
-        String level = record.getRecord().get(selectedRowIndex).getLevel();
-        String team = record.getRecord().get(selectedRowIndex).getTeam();
-        String position = record.getRecord().get(selectedRowIndex).getPosition();
-        String email = record.getRecord().get(selectedRowIndex).getEmail();
-        String phone = record.getRecord().get(selectedRowIndex).getPhone();
-        String photo = record.getRecord().get(selectedRowIndex).getPhotoFilePath();
+        EmployeeRecord temp;
+        if(!alpha){
+            temp = record;
+        } else {
+            temp = er;
+        }
+
+        int actualIndex = selectedRowIndex;
+
+        String employeeId = temp.getRecord().get(actualIndex).getEmployeeId();
+        String employeeName = temp.getRecord().get(actualIndex).getName();
+        String age = temp.getRecord().get(actualIndex).getAge();
+        String gender = temp.getRecord().get(actualIndex).getGender();
+        String startDate = temp.getRecord().get(actualIndex).getStartDate();
+        String level = temp.getRecord().get(actualIndex).getLevel();
+        String team = temp.getRecord().get(actualIndex).getTeam();
+        String position = temp.getRecord().get(actualIndex).getPosition();
+        String email = temp.getRecord().get(actualIndex).getEmail();
+        String phone = temp.getRecord().get(actualIndex).getPhone();
+        String photo = temp.getRecord().get(actualIndex).getPhotoFilePath();
         
         txtId.setText(employeeId);
         txtName.setText(employeeName);
@@ -353,19 +373,21 @@ public class ProfileJPanel extends javax.swing.JPanel {
         } catch (IOException e){
         }
         
-        jLabel1.setIcon(new ImageIcon(img));
+        lblPhoto.setIcon(new ImageIcon(img));
+
     }//GEN-LAST:event_btnShowProfileActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
+        alpha = true;
         int attribute = chAttribute.getSelectedIndex();
         String query = txtQuery.getText();
         int numberOfRecords = record.getRecord().size();
         
-        EmployeeRecord er = new EmployeeRecord();
+        er = new EmployeeRecord();
         
-        switch(attribute){
-            case 1: for(int i=0;i<numberOfRecords;i++){
+        if(attribute == 1){
+            for(int i=0;i<numberOfRecords;i++){
                 if(query.matches(record.getRecord().get(i).getEmployeeId())){
                     Employee ek = er.addNewRecord();
                     ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
@@ -378,11 +400,14 @@ public class ProfileJPanel extends javax.swing.JPanel {
                     ek.setPosition(record.getRecord().get(i).getPosition());
                     ek.setEmail(record.getRecord().get(i).getEmail());
                     ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
+                    ek.setPhotoFilePath(record.getRecord().get(i).getPhotoFilePath()); 
+      
                 }
             }
-            
-            case 2: for(int i=0;i<numberOfRecords;i++){
+        }
+        
+        if(attribute == 2){
+            for(int i=0;i<numberOfRecords;i++){
                 if(query.matches(record.getRecord().get(i).getName())){
                     Employee ek = er.addNewRecord();
                     ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
@@ -394,12 +419,14 @@ public class ProfileJPanel extends javax.swing.JPanel {
                     ek.setTeam(record.getRecord().get(i).getTeam());
                     ek.setPosition(record.getRecord().get(i).getPosition());
                     ek.setEmail(record.getRecord().get(i).getEmail());
-                    ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
+                    ek.setPhone(record.getRecord().get(i).getPhone()); 
+                    ek.setPhotoFilePath(record.getRecord().get(i).getPhotoFilePath()); 
                 }
             }
-            
-            case 3: for(int i=0;i<numberOfRecords;i++){
+        }
+        
+        if(attribute == 3){
+            for(int i=0;i<numberOfRecords;i++){
                 if(query.matches(record.getRecord().get(i).getAge())){
                     Employee ek = er.addNewRecord();
                     ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
@@ -412,11 +439,13 @@ public class ProfileJPanel extends javax.swing.JPanel {
                     ek.setPosition(record.getRecord().get(i).getPosition());
                     ek.setEmail(record.getRecord().get(i).getEmail());
                     ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
+                    ek.setPhotoFilePath(record.getRecord().get(i).getPhotoFilePath()); 
                 }
             }
-            
-            case 4: for(int i=0;i<numberOfRecords;i++){
+        }
+        
+        if(attribute == 4){
+            for(int i=0;i<numberOfRecords;i++){
                 if(query.matches(record.getRecord().get(i).getGender())){
                     Employee ek = er.addNewRecord();
                     ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
@@ -429,11 +458,13 @@ public class ProfileJPanel extends javax.swing.JPanel {
                     ek.setPosition(record.getRecord().get(i).getPosition());
                     ek.setEmail(record.getRecord().get(i).getEmail());
                     ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
+                    ek.setPhotoFilePath(record.getRecord().get(i).getPhotoFilePath()); 
                 }
             }
-            
-            case 5: for(int i=0;i<numberOfRecords;i++){
+        }
+        
+        if(attribute == 5){
+            for(int i=0;i<numberOfRecords;i++){
                 if(query.matches(record.getRecord().get(i).getStartDate())){
                     Employee ek = er.addNewRecord();
                     ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
@@ -446,11 +477,13 @@ public class ProfileJPanel extends javax.swing.JPanel {
                     ek.setPosition(record.getRecord().get(i).getPosition());
                     ek.setEmail(record.getRecord().get(i).getEmail());
                     ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
+                    ek.setPhotoFilePath(record.getRecord().get(i).getPhotoFilePath()); 
                 }
             }
-            
-            case 6: for(int i=0;i<numberOfRecords;i++){
+        }
+        
+        if(attribute == 6){
+            for(int i=0;i<numberOfRecords;i++){
                 if(query.matches(record.getRecord().get(i).getLevel())){
                     Employee ek = er.addNewRecord();
                     ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
@@ -463,11 +496,13 @@ public class ProfileJPanel extends javax.swing.JPanel {
                     ek.setPosition(record.getRecord().get(i).getPosition());
                     ek.setEmail(record.getRecord().get(i).getEmail());
                     ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
+                    ek.setPhotoFilePath(record.getRecord().get(i).getPhotoFilePath()); 
                 }
             }
-            
-            case 7: for(int i=0;i<numberOfRecords;i++){
+        }
+        
+        if(attribute == 7){
+            for(int i=0;i<numberOfRecords;i++){
                 if(query.matches(record.getRecord().get(i).getTeam())){
                     Employee ek = er.addNewRecord();
                     ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
@@ -480,11 +515,13 @@ public class ProfileJPanel extends javax.swing.JPanel {
                     ek.setPosition(record.getRecord().get(i).getPosition());
                     ek.setEmail(record.getRecord().get(i).getEmail());
                     ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
+                    ek.setPhotoFilePath(record.getRecord().get(i).getPhotoFilePath()); 
                 }
             }
-            
-            case 8: for(int i=0;i<numberOfRecords;i++){
+        }
+        
+        if(attribute == 8){
+            for(int i=0;i<numberOfRecords;i++){
                 if(query.matches(record.getRecord().get(i).getPosition())){
                     Employee ek = er.addNewRecord();
                     ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
@@ -497,11 +534,13 @@ public class ProfileJPanel extends javax.swing.JPanel {
                     ek.setPosition(record.getRecord().get(i).getPosition());
                     ek.setEmail(record.getRecord().get(i).getEmail());
                     ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
+                    ek.setPhotoFilePath(record.getRecord().get(i).getPhotoFilePath()); 
                 }
             }
-            
-            case 9: for(int i=0;i<numberOfRecords;i++){
+        }
+        
+        if(attribute == 9){
+            for(int i=0;i<numberOfRecords;i++){
                 if(query.matches(record.getRecord().get(i).getEmail())){
                     Employee ek = er.addNewRecord();
                     ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
@@ -514,11 +553,13 @@ public class ProfileJPanel extends javax.swing.JPanel {
                     ek.setPosition(record.getRecord().get(i).getPosition());
                     ek.setEmail(record.getRecord().get(i).getEmail());
                     ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
+                    ek.setPhotoFilePath(record.getRecord().get(i).getPhotoFilePath()); 
                 }
             }
-            
-            case 10: for(int i=0;i<numberOfRecords;i++){
+        }
+        
+        if(attribute == 10){
+            for(int i=0;i<numberOfRecords;i++){
                 if(query.matches(record.getRecord().get(i).getPhone())){
                     Employee ek = er.addNewRecord();
                     ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
@@ -531,7 +572,7 @@ public class ProfileJPanel extends javax.swing.JPanel {
                     ek.setPosition(record.getRecord().get(i).getPosition());
                     ek.setEmail(record.getRecord().get(i).getEmail());
                     ek.setPhone(record.getRecord().get(i).getPhone());  
-                    
+                    ek.setPhotoFilePath(record.getRecord().get(i).getPhotoFilePath()); 
                 }
             }
         }
@@ -554,6 +595,10 @@ public class ProfileJPanel extends javax.swing.JPanel {
             
             model.addRow(row);
         }
+        
+        chAttribute.select(0);
+        txtQuery.setText("");
+
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void txtQueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQueryActionPerformed
@@ -574,6 +619,7 @@ public class ProfileJPanel extends javax.swing.JPanel {
 
     private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
         // TODO add your handling code here:
+        alpha = false;
         PopulateTable();
         txtQuery.setText("");
         chAttribute.select(0);
@@ -589,7 +635,8 @@ public class ProfileJPanel extends javax.swing.JPanel {
         txtEmail.setText("");
         txtPhone.setText("");
         
-        jLabel1.setIcon(null);
+        lblPhoto.setIcon(null);
+
     }//GEN-LAST:event_btnViewAllActionPerformed
 
 
@@ -598,18 +645,19 @@ public class ProfileJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnShowProfile;
     private javax.swing.JButton btnViewAll;
     private java.awt.Choice chAttribute;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAge;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblGender;
+    private javax.swing.JLabel lblId;
+    private javax.swing.JLabel lblLevel;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPhone;
+    private javax.swing.JLabel lblPhoto;
+    private javax.swing.JLabel lblPosition;
+    private javax.swing.JLabel lblSearch;
+    private javax.swing.JLabel lblStartDate;
+    private javax.swing.JLabel lblTeam;
     private javax.swing.JTable tblRecords;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtEmail;
