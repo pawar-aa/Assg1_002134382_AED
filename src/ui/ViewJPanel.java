@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import model.Employee.Employee;
 import model.Employee.EmployeeRecord;
 
+
 /**
  *
  * @author Aashay
@@ -21,12 +22,22 @@ public class ViewJPanel extends javax.swing.JPanel {
     
     EmployeeRecord record;
     
+    
     public ViewJPanel(EmployeeRecord record) {
         initComponents();
         
         this.record = record;
         
         PopulateTable();
+        
+        String[] attributes = {"Id", "Name", "Age", "Gender", "Start Date", "Level", "Team", "Position", "Email", "Phone" };
+        chAttribute.add("");
+        for(int i=0;i<10;i++){
+            chAttribute.add(attributes[i]);  
+        }
+        
+        btnUpdateSave.setEnabled(false);
+        txtUpdateId.setEnabled(false);
     }
 
     /**
@@ -39,34 +50,165 @@ public class ViewJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblRecords = new javax.swing.JTable();
+        btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        chAttribute = new java.awt.Choice();
+        txtQuery = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        btnViewAll = new javax.swing.JButton();
+        txtUpdateName = new javax.swing.JTextField();
+        txtUpdatePhone = new javax.swing.JTextField();
+        btnUpdateSave = new javax.swing.JButton();
+        btnUpdatePhoto = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txtUpdateId = new javax.swing.JTextField();
+        chUpdateGender = new java.awt.Choice();
+        chUpdateDate = new java.awt.Choice();
+        chUpdateMonth = new java.awt.Choice();
+        chUpdateYear = new java.awt.Choice();
+        txtUpdateTeam = new javax.swing.JTextField();
+        txtUpdateLevel = new javax.swing.JTextField();
+        txtUpdatePosition = new javax.swing.JTextField();
+        txtUpdateAge = new javax.swing.JTextField();
+        txtUpdateEmail = new javax.swing.JTextField();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblRecords.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2"
+                "ID", "Name", "Age", "Gender", "Start", "Level", "Team Info", "Position", "Email", "Phone"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblRecords);
+
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
+            }
+        });
+
+        txtQuery.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtQueryActionPerformed(evt);
+            }
+        });
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        btnViewAll.setText("View All");
+        btnViewAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewAllActionPerformed(evt);
+            }
+        });
+
+        txtUpdatePhone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUpdatePhoneActionPerformed(evt);
+            }
+        });
+
+        btnUpdateSave.setText("Save");
+        btnUpdateSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateSaveActionPerformed(evt);
+            }
+        });
+
+        btnUpdatePhoto.setText("Select a File (.JPG, .PNG)");
+
+        jLabel1.setText("Employee ID:");
+
+        jLabel2.setText("Full Name:");
+
+        jLabel3.setText("Age:");
+
+        jLabel4.setText("Gender:");
+
+        jLabel5.setText("Start Date:");
+
+        jLabel6.setText("Level:");
+
+        jLabel7.setText("Team Info:");
+
+        jLabel8.setText("Position Title:");
+
+        jLabel9.setText("Email:");
+
+        jLabel10.setText("Phone:");
+
+        jLabel11.setText("Photo:");
+
+        txtUpdateTeam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUpdateTeamActionPerformed(evt);
+            }
+        });
+
+        txtUpdateLevel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUpdateLevelActionPerformed(evt);
+            }
+        });
+
+        txtUpdatePosition.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUpdatePositionActionPerformed(evt);
+            }
+        });
+
+        txtUpdateAge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUpdateAgeActionPerformed(evt);
+            }
+        });
+
+        txtUpdateEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUpdateEmailActionPerformed(evt);
             }
         });
 
@@ -76,56 +218,565 @@ public class ViewJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDelete)
-                .addGap(144, 144, 144))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtQuery, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                            .addComponent(chAttribute, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(btnSearch)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(204, 204, 204)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel9)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel11)
+                                        .addComponent(jLabel10))
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(12, 12, 12)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtUpdateId)
+                            .addComponent(txtUpdateAge, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUpdatePhone, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUpdateName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chUpdateGender, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(chUpdateDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(chUpdateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(chUpdateYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtUpdateTeam, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUpdateLevel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUpdatePosition, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUpdateEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnUpdatePhoto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnViewAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(50, 50, 50))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(386, 386, 386)
+                .addComponent(btnUpdateSave)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(14, 14, 14)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnDelete)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnDelete)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnViewAll)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnUpdate)
+                                        .addGap(18, 18, 18))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(chAttribute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(txtUpdateId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtQuery))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtUpdateName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtUpdateAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(79, 79, 79)
+                                .addComponent(btnSearch)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chUpdateGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(chUpdateDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chUpdateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chUpdateYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(txtUpdateLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtUpdateTeam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtUpdatePosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtUpdateEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtUpdatePhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(btnUpdatePhoto))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnUpdateSave)
+                        .addContainerGap(26, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        int selectedRowIndex = jTable1.getSelectedRow();
+        int selectedRowIndex = tblRecords.getSelectedRow();
         if(selectedRowIndex<0){
             JOptionPane.showMessageDialog(this, "Select a row to delete");
             return;
         }
       
-        record.deleteEmployee(selectedRowIndex);
+        record.deleteRecord(selectedRowIndex);
         
         PopulateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+
+        int selectedRowIndex = tblRecords.getSelectedRow();
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Select a row to update");
+            return;
+        }
+        
+        chUpdateGender.add("");
+        chUpdateGender.add("Male");
+        chUpdateGender.add("Female");
+        chUpdateGender.add("NA");
+        
+        chUpdateDate.add("");
+        for (int i = 1; i < 10; i++) {
+            chUpdateDate.add("0" + String.valueOf(i));
+        }
+        for (int i = 10; i < 32; i++) {
+            chUpdateDate.add(String.valueOf(i));
+        }
+        
+        String[] months = {"","JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
+        for (int i = 0; i < 13; i++) {
+            chUpdateMonth.add(months[i]);
+        }
+        
+        chUpdateYear.add("");
+        for (int i = 2022; i > 1980; i--) {
+            chUpdateYear.add(String.valueOf(i));
+        }
+        
+        btnUpdateSave.setEnabled(true);
+        
+        String employeeId = record.getRecord().get(selectedRowIndex).getEmployeeId();
+        String employeeName = record.getRecord().get(selectedRowIndex).getName();
+        String age = record.getRecord().get(selectedRowIndex).getAge();
+        String gender = record.getRecord().get(selectedRowIndex).getGender();
+        String startDate = record.getRecord().get(selectedRowIndex).getStartDate();
+        String level = record.getRecord().get(selectedRowIndex).getLevel();
+        String team = record.getRecord().get(selectedRowIndex).getTeam();
+        String position = record.getRecord().get(selectedRowIndex).getPosition();
+        String email = record.getRecord().get(selectedRowIndex).getEmail();
+        String phone = record.getRecord().get(selectedRowIndex).getPhone();
+        
+        txtUpdateId.setText(employeeId);
+        txtUpdateName.setText(employeeName);
+        txtUpdateAge.setText(age);
+        chUpdateGender.select(gender);
+        chUpdateDate.select(startDate.substring(0, 2));
+        chUpdateMonth.select(startDate.substring(3, 6));
+        chUpdateYear.select(startDate.substring(7, 11));       
+        txtUpdateLevel.setText(level);
+        txtUpdateTeam.setText(team);
+        txtUpdatePosition.setText(position);
+        txtUpdateEmail.setText(email);
+        txtUpdatePhone.setText(phone);
+        
+        
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void txtQueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQueryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtQueryActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+
+        int attribute = chAttribute.getSelectedIndex();
+        String query = txtQuery.getText();
+        int numberOfRecords = record.getRecord().size();
+        
+        EmployeeRecord er = new EmployeeRecord();
+        
+        switch(attribute){
+            case 1: for(int i=0;i<numberOfRecords;i++){
+                if(query.matches(record.getRecord().get(i).getEmployeeId())){
+                    Employee ek = er.addNewRecord();
+                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
+                    ek.setName(record.getRecord().get(i).getName());
+                    ek.setAge(record.getRecord().get(i).getAge());
+                    ek.setGender(record.getRecord().get(i).getGender());
+                    ek.setStartDate(record.getRecord().get(i).getStartDate());
+                    ek.setLevel(record.getRecord().get(i).getLevel());
+                    ek.setTeam(record.getRecord().get(i).getTeam());
+                    ek.setPosition(record.getRecord().get(i).getPosition());
+                    ek.setEmail(record.getRecord().get(i).getEmail());
+                    ek.setPhone(record.getRecord().get(i).getPhone());  
+                    
+                }
+            }
+            
+            case 2: for(int i=0;i<numberOfRecords;i++){
+                if(query.matches(record.getRecord().get(i).getName())){
+                    Employee ek = er.addNewRecord();
+                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
+                    ek.setName(record.getRecord().get(i).getName());
+                    ek.setAge(record.getRecord().get(i).getAge());
+                    ek.setGender(record.getRecord().get(i).getGender());
+                    ek.setStartDate(record.getRecord().get(i).getStartDate());
+                    ek.setLevel(record.getRecord().get(i).getLevel());
+                    ek.setTeam(record.getRecord().get(i).getTeam());
+                    ek.setPosition(record.getRecord().get(i).getPosition());
+                    ek.setEmail(record.getRecord().get(i).getEmail());
+                    ek.setPhone(record.getRecord().get(i).getPhone());  
+                    
+                }
+            }
+            
+            case 3: for(int i=0;i<numberOfRecords;i++){
+                if(query.matches(record.getRecord().get(i).getAge())){
+                    Employee ek = er.addNewRecord();
+                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
+                    ek.setName(record.getRecord().get(i).getName());
+                    ek.setAge(record.getRecord().get(i).getAge());
+                    ek.setGender(record.getRecord().get(i).getGender());
+                    ek.setStartDate(record.getRecord().get(i).getStartDate());
+                    ek.setLevel(record.getRecord().get(i).getLevel());
+                    ek.setTeam(record.getRecord().get(i).getTeam());
+                    ek.setPosition(record.getRecord().get(i).getPosition());
+                    ek.setEmail(record.getRecord().get(i).getEmail());
+                    ek.setPhone(record.getRecord().get(i).getPhone());  
+                    
+                }
+            }
+            
+            case 4: for(int i=0;i<numberOfRecords;i++){
+                if(query.matches(record.getRecord().get(i).getGender())){
+                    Employee ek = er.addNewRecord();
+                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
+                    ek.setName(record.getRecord().get(i).getName());
+                    ek.setAge(record.getRecord().get(i).getAge());
+                    ek.setGender(record.getRecord().get(i).getGender());
+                    ek.setStartDate(record.getRecord().get(i).getStartDate());
+                    ek.setLevel(record.getRecord().get(i).getLevel());
+                    ek.setTeam(record.getRecord().get(i).getTeam());
+                    ek.setPosition(record.getRecord().get(i).getPosition());
+                    ek.setEmail(record.getRecord().get(i).getEmail());
+                    ek.setPhone(record.getRecord().get(i).getPhone());  
+                    
+                }
+            }
+            
+            case 5: for(int i=0;i<numberOfRecords;i++){
+                if(query.matches(record.getRecord().get(i).getStartDate())){
+                    Employee ek = er.addNewRecord();
+                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
+                    ek.setName(record.getRecord().get(i).getName());
+                    ek.setAge(record.getRecord().get(i).getAge());
+                    ek.setGender(record.getRecord().get(i).getGender());
+                    ek.setStartDate(record.getRecord().get(i).getStartDate());
+                    ek.setLevel(record.getRecord().get(i).getLevel());
+                    ek.setTeam(record.getRecord().get(i).getTeam());
+                    ek.setPosition(record.getRecord().get(i).getPosition());
+                    ek.setEmail(record.getRecord().get(i).getEmail());
+                    ek.setPhone(record.getRecord().get(i).getPhone());  
+                    
+                }
+            }
+            
+            case 6: for(int i=0;i<numberOfRecords;i++){
+                if(query.matches(record.getRecord().get(i).getLevel())){
+                    Employee ek = er.addNewRecord();
+                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
+                    ek.setName(record.getRecord().get(i).getName());
+                    ek.setAge(record.getRecord().get(i).getAge());
+                    ek.setGender(record.getRecord().get(i).getGender());
+                    ek.setStartDate(record.getRecord().get(i).getStartDate());
+                    ek.setLevel(record.getRecord().get(i).getLevel());
+                    ek.setTeam(record.getRecord().get(i).getTeam());
+                    ek.setPosition(record.getRecord().get(i).getPosition());
+                    ek.setEmail(record.getRecord().get(i).getEmail());
+                    ek.setPhone(record.getRecord().get(i).getPhone());  
+                    
+                }
+            }
+            
+            case 7: for(int i=0;i<numberOfRecords;i++){
+                if(query.matches(record.getRecord().get(i).getTeam())){
+                    Employee ek = er.addNewRecord();
+                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
+                    ek.setName(record.getRecord().get(i).getName());
+                    ek.setAge(record.getRecord().get(i).getAge());
+                    ek.setGender(record.getRecord().get(i).getGender());
+                    ek.setStartDate(record.getRecord().get(i).getStartDate());
+                    ek.setLevel(record.getRecord().get(i).getLevel());
+                    ek.setTeam(record.getRecord().get(i).getTeam());
+                    ek.setPosition(record.getRecord().get(i).getPosition());
+                    ek.setEmail(record.getRecord().get(i).getEmail());
+                    ek.setPhone(record.getRecord().get(i).getPhone());  
+                    
+                }
+            }
+            
+            case 8: for(int i=0;i<numberOfRecords;i++){
+                if(query.matches(record.getRecord().get(i).getPosition())){
+                    Employee ek = er.addNewRecord();
+                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
+                    ek.setName(record.getRecord().get(i).getName());
+                    ek.setAge(record.getRecord().get(i).getAge());
+                    ek.setGender(record.getRecord().get(i).getGender());
+                    ek.setStartDate(record.getRecord().get(i).getStartDate());
+                    ek.setLevel(record.getRecord().get(i).getLevel());
+                    ek.setTeam(record.getRecord().get(i).getTeam());
+                    ek.setPosition(record.getRecord().get(i).getPosition());
+                    ek.setEmail(record.getRecord().get(i).getEmail());
+                    ek.setPhone(record.getRecord().get(i).getPhone());  
+                    
+                }
+            }
+            
+            case 9: for(int i=0;i<numberOfRecords;i++){
+                if(query.matches(record.getRecord().get(i).getEmail())){
+                    Employee ek = er.addNewRecord();
+                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
+                    ek.setName(record.getRecord().get(i).getName());
+                    ek.setAge(record.getRecord().get(i).getAge());
+                    ek.setGender(record.getRecord().get(i).getGender());
+                    ek.setStartDate(record.getRecord().get(i).getStartDate());
+                    ek.setLevel(record.getRecord().get(i).getLevel());
+                    ek.setTeam(record.getRecord().get(i).getTeam());
+                    ek.setPosition(record.getRecord().get(i).getPosition());
+                    ek.setEmail(record.getRecord().get(i).getEmail());
+                    ek.setPhone(record.getRecord().get(i).getPhone());  
+                    
+                }
+            }
+            
+            case 10: for(int i=0;i<numberOfRecords;i++){
+                if(query.matches(record.getRecord().get(i).getPhone())){
+                    Employee ek = er.addNewRecord();
+                    ek.setEmployeeId(record.getRecord().get(i).getEmployeeId());
+                    ek.setName(record.getRecord().get(i).getName());
+                    ek.setAge(record.getRecord().get(i).getAge());
+                    ek.setGender(record.getRecord().get(i).getGender());
+                    ek.setStartDate(record.getRecord().get(i).getStartDate());
+                    ek.setLevel(record.getRecord().get(i).getLevel());
+                    ek.setTeam(record.getRecord().get(i).getTeam());
+                    ek.setPosition(record.getRecord().get(i).getPosition());
+                    ek.setEmail(record.getRecord().get(i).getEmail());
+                    ek.setPhone(record.getRecord().get(i).getPhone());  
+                    
+                }
+            }
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tblRecords.getModel();
+        model.setRowCount(0);
+        
+        for(Employee e: er.getRecord()){
+            Object[] row = new Object[10];
+            row[0] = e.getEmployeeId();
+            row[1] = e.getName();
+            row[2] = e.getAge();
+            row[3] = e.getGender();
+            row[4] = e.getStartDate();
+            row[5] = e.getLevel();
+            row[6] = e.getTeam();
+            row[7] = e.getPosition();
+            row[8] = e.getEmail();
+            row[9] = e.getPhone();
+            
+            model.addRow(row);
+        }
+        
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
+        // TODO add your handling code here:
+        PopulateTable();
+    }//GEN-LAST:event_btnViewAllActionPerformed
+
+    private void txtUpdatePhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdatePhoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUpdatePhoneActionPerformed
+
+    private void btnUpdateSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateSaveActionPerformed
+        // TODO add your handling code here:
+ 
+        String id = txtUpdateId.getText();
+        String name = txtUpdateName.getText();
+        String age = txtUpdateAge.getText();
+        String gender = chUpdateGender.getSelectedItem();
+        String startDate = chUpdateDate.getSelectedItem() + " " + chUpdateMonth.getSelectedItem() + " " + chUpdateYear.getSelectedItem();
+        String level = txtUpdateLevel.getText();
+        String team = txtUpdateTeam.getText();
+        String position = txtUpdatePosition.getText();
+        String email = txtUpdateEmail.getText();
+        String phone = txtUpdatePhone.getText();
+
+        Employee e = record.addNewRecord();
+
+        e.setEmployeeId(id);
+        e.setName(name);
+        e.setAge(age);
+        e.setGender(gender);
+        e.setStartDate(startDate);
+        e.setLevel(level);
+        e.setTeam(team);
+        e.setPosition(position);
+        e.setEmail(email);
+        e.setPhone(phone);
+
+        JOptionPane.showMessageDialog(this,"Fields Updates!");
+
+        txtUpdateId.setText("");
+        txtUpdateName.setText("");
+        txtUpdateAge.setText("");
+        chUpdateGender.select(0);
+        chUpdateDate.select(0);
+        chUpdateMonth.select(0);
+        chUpdateYear.select(0);
+        txtUpdateLevel.setText("");
+        txtUpdateTeam.setText("");
+        txtUpdatePosition.setText("");
+        txtUpdateEmail.setText("");
+        txtUpdatePhone.setText("");
+        
+        int selectedRowIndex = tblRecords.getSelectedRow();
+        record.deleteRecord(selectedRowIndex);
+        
+        PopulateTable();
+        btnUpdateSave.setEnabled(false);
+
+    }//GEN-LAST:event_btnUpdateSaveActionPerformed
+
+    private void txtUpdateTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateTeamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUpdateTeamActionPerformed
+
+    private void txtUpdateLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateLevelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUpdateLevelActionPerformed
+
+    private void txtUpdatePositionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdatePositionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUpdatePositionActionPerformed
+
+    private void txtUpdateAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateAgeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUpdateAgeActionPerformed
+
+    private void txtUpdateEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUpdateEmailActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnUpdatePhoto;
+    private javax.swing.JButton btnUpdateSave;
+    private javax.swing.JButton btnViewAll;
+    private java.awt.Choice chAttribute;
+    private java.awt.Choice chUpdateDate;
+    private java.awt.Choice chUpdateGender;
+    private java.awt.Choice chUpdateMonth;
+    private java.awt.Choice chUpdateYear;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblRecords;
+    private javax.swing.JTextField txtQuery;
+    private javax.swing.JTextField txtUpdateAge;
+    private javax.swing.JTextField txtUpdateEmail;
+    private javax.swing.JTextField txtUpdateId;
+    private javax.swing.JTextField txtUpdateLevel;
+    private javax.swing.JTextField txtUpdateName;
+    private javax.swing.JTextField txtUpdatePhone;
+    private javax.swing.JTextField txtUpdatePosition;
+    private javax.swing.JTextField txtUpdateTeam;
     // End of variables declaration//GEN-END:variables
 
     private void PopulateTable() {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblRecords.getModel();
         model.setRowCount(0);
         
         for(Employee e: record.getRecord()){
-            Object[] row = new Object[2];
-            row[0] = e.getName();
-            row[1] = e.getEmployeeId();
+            Object[] row = new Object[10];
+            row[0] = e.getEmployeeId();
+            row[1] = e.getName();
+            row[2] = e.getAge();
+            row[3] = e.getGender();
+            row[4] = e.getStartDate();
+            row[5] = e.getLevel();
+            row[6] = e.getTeam();
+            row[7] = e.getPosition();
+            row[8] = e.getEmail();
+            row[9] = e.getPhone();
             
             model.addRow(row);
         }
         
     }
 }
+
+
