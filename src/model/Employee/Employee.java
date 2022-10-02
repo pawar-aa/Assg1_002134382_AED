@@ -19,6 +19,15 @@ public class Employee {
     private String position;
     private String email;
     private String phone;
+    private String photoFilePath;
+
+    public String getPhotoFilePath() {
+        return photoFilePath;
+    }
+
+    public void setPhotoFilePath(String photoFilePath) {
+        this.photoFilePath = photoFilePath;
+    }
 
     public String getAge() {
         return age;

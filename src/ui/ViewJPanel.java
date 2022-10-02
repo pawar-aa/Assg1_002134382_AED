@@ -4,6 +4,7 @@
  */
 package ui;
 
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Employee.Employee;
@@ -21,6 +22,7 @@ public class ViewJPanel extends javax.swing.JPanel {
      */
     
     EmployeeRecord record;
+    private String xFilePath;
     
     
     public ViewJPanel(EmployeeRecord record) {
@@ -159,6 +161,11 @@ public class ViewJPanel extends javax.swing.JPanel {
         });
 
         btnUpdatePhoto.setText("Select a File (.JPG, .PNG)");
+        btnUpdatePhoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdatePhotoActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Employee ID:");
 
@@ -661,6 +668,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         String position = txtUpdatePosition.getText();
         String email = txtUpdateEmail.getText();
         String phone = txtUpdatePhone.getText();
+        String photoFilePath = xFilePath;
 
         Employee e = record.addNewRecord();
 
@@ -674,6 +682,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         e.setPosition(position);
         e.setEmail(email);
         e.setPhone(phone);
+        e.setPhotoFilePath(photoFilePath);
 
         JOptionPane.showMessageDialog(this,"Fields Updates!");
 
@@ -718,7 +727,18 @@ public class ViewJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUpdateEmailActionPerformed
 
+    private void btnUpdatePhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdatePhotoActionPerformed
+        // TODO add your handling code here:
+        JFileChooser file = new JFileChooser();
+        file.setMultiSelectionEnabled(true);
+        file.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        file.setFileHidingEnabled(false);
+        if (file.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+           java.io.File f = file.getSelectedFile();
+           xFilePath = f.getPath();
+    }//GEN-LAST:event_btnUpdatePhotoActionPerformed
 
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSearch;

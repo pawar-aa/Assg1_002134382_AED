@@ -4,6 +4,7 @@
  */
 package ui;
 
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import model.Employee.Employee;
 import model.Employee.EmployeeRecord;
@@ -19,6 +20,8 @@ public class CreateJPanel extends javax.swing.JPanel {
      */
     
     EmployeeRecord record;
+    private String xFilePath;
+    
             
     public CreateJPanel(EmployeeRecord record) {
         initComponents();
@@ -177,6 +180,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         });
 
         btnPhoto.setText("Select a File (.JPG, .PNG)");
+        btnPhoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPhotoActionPerformed(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         jLabel12.setText("New Employee Information");
@@ -300,6 +308,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         String position = txtPosition.getText();
         String email = txtEmail.getText();
         String phone = txtPhone.getText();
+        String photoFilePath = xFilePath;
         
         if(name.length()*age.length()*gender.length()*startDate.length()*level.length()*team.length()*position.length()*email.length()*phone.length() == 0 ){
             JOptionPane.showMessageDialog(this,"One or more fields missing!");
@@ -318,6 +327,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         e.setPosition(position);
         e.setEmail(email);
         e.setPhone(phone);
+        e.setPhotoFilePath(photoFilePath);
         
         
         
@@ -369,6 +379,19 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPhoneActionPerformed
+
+    
+    private void btnPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhotoActionPerformed
+        // TODO add your handling code here:
+        JFileChooser file = new JFileChooser();
+        file.setMultiSelectionEnabled(true);
+        file.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        file.setFileHidingEnabled(false);
+        if (file.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+           java.io.File f = file.getSelectedFile();
+           xFilePath = f.getPath();
+        }
+    }//GEN-LAST:event_btnPhotoActionPerformed
 
 
     

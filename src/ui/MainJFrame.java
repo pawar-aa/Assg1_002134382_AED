@@ -37,7 +37,6 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
-        btnViewAll = new javax.swing.JButton();
         btnShowProfile = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
@@ -57,9 +56,12 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnViewAll.setText("View All");
-
         btnShowProfile.setText("Show Profile");
+        btnShowProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowProfileActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -69,10 +71,8 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnShowProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(btnViewAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnView, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -82,11 +82,9 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnAdd)
                 .addGap(26, 26, 26)
                 .addComponent(btnView)
-                .addGap(29, 29, 29)
-                .addComponent(btnViewAll)
-                .addGap(29, 29, 29)
+                .addGap(26, 26, 26)
                 .addComponent(btnShowProfile)
-                .addContainerGap(593, Short.MAX_VALUE))
+                .addContainerGap(648, Short.MAX_VALUE))
         );
 
         jSplitPane2.setLeftComponent(jPanel3);
@@ -133,6 +131,12 @@ public class MainJFrame extends javax.swing.JFrame {
         jSplitPane2.setRightComponent(viewPanel);
     }//GEN-LAST:event_btnViewActionPerformed
 
+    private void btnShowProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowProfileActionPerformed
+        // TODO add your handling code here:
+        ProfileJPanel profilePanel = new ProfileJPanel(record);
+        jSplitPane2.setRightComponent(profilePanel);
+    }//GEN-LAST:event_btnShowProfileActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -172,7 +176,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnShowProfile;
     private javax.swing.JButton btnView;
-    private javax.swing.JButton btnViewAll;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSplitPane jSplitPane2;
