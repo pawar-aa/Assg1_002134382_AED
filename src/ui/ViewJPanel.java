@@ -4,6 +4,7 @@
  */
 package ui;
 
+import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -408,6 +409,16 @@ public class ViewJPanel extends javax.swing.JPanel {
         String phone = txtUpdatePhone.getText();
         String photoFilePath = xFilePath;
         
+        if(!age.matches("[0-9]+") || !phone.matches("[0-9]+") || !isValid(email)){
+            if(!age.matches("[0-9]+"))
+                JOptionPane.showMessageDialog(this,"Age should be a number!");
+            if(!phone.matches("[0-9]+"))
+                JOptionPane.showMessageDialog(this,"Phone must have digits only!");
+            if(!isValid(email))
+                JOptionPane.showMessageDialog(this,"Email Invalid!");
+            return;
+        }
+        
         if(name.length()*age.length()*gender.length()*startDate.length()*level.length()*team.length()*position.length()*email.length()*phone.length() == 0 ){
             JOptionPane.showMessageDialog(this,"One or more fields missing!");
             return;
@@ -540,6 +551,19 @@ public class ViewJPanel extends javax.swing.JPanel {
             model.addRow(row);
         }
         
+    }
+    
+    public static boolean isValid(String email)
+    {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                            "[a-zA-Z0-9_+&*-]+)*@" +
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                            "A-Z]{2,7}$";
+                              
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
     }
 }
 

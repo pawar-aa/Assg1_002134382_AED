@@ -7,6 +7,7 @@ package ui;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.regex.Pattern;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -310,6 +311,16 @@ public class CreateJPanel extends javax.swing.JPanel {
         String phone = txtPhone.getText();
         String photoFilePath = xFilePath;
         
+        if(!age.matches("[0-9]+") || !phone.matches("[0-9]+") || !isValid(email)){
+            if(!age.matches("[0-9]+"))
+                JOptionPane.showMessageDialog(this,"Age should be a number!");
+            if(!phone.matches("[0-9]+"))
+                JOptionPane.showMessageDialog(this,"Phone must have digits only!");
+            if(!isValid(email))
+                JOptionPane.showMessageDialog(this,"Email Invalid!");
+            return;
+        }
+ 
         if(photoFilePath == null){
             photoFilePath = "";
         }
@@ -401,6 +412,18 @@ public class CreateJPanel extends javax.swing.JPanel {
         labelPhoto.setIcon(new ImageIcon(img));
     }//GEN-LAST:event_btnPhotoActionPerformed
 
+    public static boolean isValid(String email)
+    {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                            "[a-zA-Z0-9_+&*-]+)*@" +
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                            "A-Z]{2,7}$";
+                              
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
+    }
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
